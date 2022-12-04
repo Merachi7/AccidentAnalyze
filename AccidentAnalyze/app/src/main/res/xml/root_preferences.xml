@@ -3,7 +3,7 @@
 
     <PreferenceCategory app:title="@string/csvfile_header"/>
 
-        <EditTextPreference
+        <Preference
             android:defaultValue="@string/csvfile_default"
             app:key="csv_upload"
             app:title="@string/csvfile_title"
