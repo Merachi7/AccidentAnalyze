@@ -1,11 +1,20 @@
 <resources>
     <string name="app_name">AccidentAnalyze</string>
+
+    <!-- Titles -->
+    <string name="dashboard_title">대시보드</string>
+    <string name="method_title">대처방안</string>
+    <string name="setting_title">설정</string>
+
     <!-- Preference Titles -->
     <string name="csvfile_header">CSV 파일</string>
-    <string name="setting">설정</string>
 
     <!-- Messages Preferences -->
     <string name="csvfile_title">CSV 파일 업로드</string>
     <string name="csvfile_default">등록된 파일이 없습니다.</string>
     <string name="csvdelete_title">CSV 파일 삭제</string>
+
+    <!-- Buttons -->
+    <string name="dashboard_button">대시보드</string>
+    <string name="method_button">대처방안</string>
 </resources>
