@@ -13,8 +13,16 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
+import com.opencsv.CSVReader;
+
+import org.merachi7.accidentanalyze.BuildConfig;
 import org.merachi7.accidentanalyze.R;
 import org.merachi7.accidentanalyze.util.NotesDbAdapter;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 @SuppressWarnings("deprecation")
 public class SettingsFragment extends PreferenceFragmentCompat {
@@ -66,7 +74,21 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             if (data != null) {
                 Uri fileUri = data.getData();
                 path = fileUri.getPath();
+                path = path.substring(path.lastIndexOf("/") + 1);
+
+                File file = new File(fileUri.getPath());
+
+                try (FileReader fr = new FileReader(file);
+                     CSVReader reader = new CSVReader(fr)) {
+                } catch (IOException e) {
+                    if (BuildConfig.DEBUG) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
+
+
 
             editor.putString("csv_upload", path);
             editor.commit();

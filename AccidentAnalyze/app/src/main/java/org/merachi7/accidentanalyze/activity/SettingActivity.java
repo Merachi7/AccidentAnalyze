@@ -9,11 +9,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import org.merachi7.accidentanalyze.R;
+import org.merachi7.accidentanalyze.data.AccidentData;
 import org.merachi7.accidentanalyze.util.NotesDbAdapter;
+
+import java.util.ArrayList;
 
 public class SettingActivity extends AppCompatActivity {
 
-
+    NotesDbAdapter DBHelper;
 
 
     @Override
@@ -25,6 +28,9 @@ public class SettingActivity extends AppCompatActivity {
         SharedPreferences prefs;
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String path = prefs.getString("csv_upload", "");
+
+        DBHelper = new NotesDbAdapter(SettingActivity.this);
+
     }
 
 
