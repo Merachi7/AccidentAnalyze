@@ -15,7 +15,11 @@
             android:singleLine="true"
             android:title="@string/csvdelete_title"/>
 
+        <Preference
+            android:key="csv_help"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="도움말"/>
+
     <PreferenceCategory/>
-
-
 </PreferenceScreen>

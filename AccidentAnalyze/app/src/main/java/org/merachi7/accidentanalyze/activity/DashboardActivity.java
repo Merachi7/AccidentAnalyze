@@ -2,20 +2,30 @@ package org.merachi7.accidentanalyze.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ContentUris;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.merachi7.accidentanalyze.R;
 import org.merachi7.accidentanalyze.util.CsvHelper;
 import org.merachi7.accidentanalyze.util.NotesDbAdapter;
+import org.merachi7.accidentanalyze.fragment.SettingsFragment;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
@@ -41,11 +51,7 @@ public class DashboardActivity extends AppCompatActivity {
         path = filePath + "/" + path;
         List<String[]> dataList = csv_helper.readAllCsvData(path);
 
-
-
         Log.d(TAG, "DatabaseTest :: onCreate()");
-        this.dbAdapter = new NotesDbAdapter(this);
-
     }
 
     // Storage Permissions

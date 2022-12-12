@@ -5,6 +5,7 @@
     <string name="dashboard_title">대시보드</string>
     <string name="method_title">대처방안</string>
     <string name="setting_title">설정</string>
+    <string name="help_title">도움말</string>
 
     <!-- Preference Titles -->
     <string name="csvfile_header">CSV 파일</string>
