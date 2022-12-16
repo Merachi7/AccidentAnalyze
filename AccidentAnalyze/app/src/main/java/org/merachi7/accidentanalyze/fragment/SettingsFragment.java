@@ -115,11 +115,12 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         CsvHelper csv_helper = new CsvHelper();
         dbAdapter = new NotesDbAdapter(getActivity());
 
-        //String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
-       // path = filePath + "/" + path;
-
-
+        getActivity().deleteDatabase("NotesDbAdapter");
         List<String[]> dataList = csv_helper.readAllCsvData(path);
+
+        dbAdapter.open();
+        dbAdapter.insertAllData(dataList, dbAdapter);
+        dbAdapter.close();
     }
 
 
