@@ -1,39 +1,33 @@
 package org.merachi7.accidentanalyze.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.ContentUris;
-import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.ImageButton;
 
 import org.merachi7.accidentanalyze.R;
+import org.merachi7.accidentanalyze.fragment.DashboardBarFragment;
+import org.merachi7.accidentanalyze.fragment.DashboardCircleFragment;
+import org.merachi7.accidentanalyze.fragment.DashboardCombined1Fragment;
+import org.merachi7.accidentanalyze.fragment.DashboardCombined2Fragment;
 import org.merachi7.accidentanalyze.util.CsvHelper;
-import org.merachi7.accidentanalyze.util.NotesDbAdapter;
-import org.merachi7.accidentanalyze.fragment.SettingsFragment;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
-    private NotesDbAdapter dbAdapter;
-
-    private static final String TAG = "NotesDbAdapter";
+    private FragmentManager fragmentManager;
+    private DashboardBarFragment fragment_barchart;
+    private DashboardCircleFragment fragment_circle;
+    private DashboardCombined1Fragment fragment_combined1;
+    private DashboardCombined2Fragment fragment_combined2;
+    private FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +44,44 @@ public class DashboardActivity extends AppCompatActivity {
         dataList =  csv_helper.readAllCsvData(path);
         int a = 0;
 
+        fragmentManager = getSupportFragmentManager();
+
+        fragment_barchart = new DashboardBarFragment();
+        fragment_circle = new DashboardCircleFragment();
+        fragment_combined1 = new DashboardCombined1Fragment();
+        fragment_combined2 = new DashboardCombined2Fragment();
+
+        transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameLayout, fragment_barchart).commitAllowingStateLoss();
+
+        ImageButton btnSetting = (ImageButton) findViewById(R.id.btnDataSetting);
+        btnSetting.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), DataSettingActivity.class);
+            startActivity(intent);
+        });
+
     }
 
+
+
+    public void clickHandler(View view)
+    {
+        transaction = fragmentManager.beginTransaction();
+
+        switch(view.getId())
+        {
+            case R.id.btn_fragment_barchart:
+                transaction.replace(R.id.frameLayout, fragment_barchart).commitAllowingStateLoss();
+                break;
+            case R.id.btn_fragment_circle:
+                transaction.replace(R.id.frameLayout, fragment_circle).commitAllowingStateLoss();
+                break;
+            case R.id.btn_fragment_combined1:
+                transaction.replace(R.id.frameLayout, fragment_combined1).commitAllowingStateLoss();
+                break;
+            case R.id.btn_fragment_combined2:
+                transaction.replace(R.id.frameLayout, fragment_combined2).commitAllowingStateLoss();
+                break;
+        }
+    }
 }

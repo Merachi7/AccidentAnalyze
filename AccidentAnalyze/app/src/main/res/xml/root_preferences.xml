@@ -1,25 +1,25 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/csvfile_header"/>
+    <PreferenceCategory app:title="@string/csvfile_header" />
 
-        <Preference
-            android:defaultValue="@string/csvfile_default"
-            app:key="csv_upload"
-            app:title="@string/csvfile_title"
-            app:useSimpleSummaryProvider="true"/>
+    <Preference
+        android:defaultValue="@string/csvfile_default"
+        app:key="csv_upload"
+        app:title="@string/csvfile_title"
+        app:useSimpleSummaryProvider="true" />
 
-        <Preference
-            android:key="csv_delete"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="@string/csvdelete_title"/>
+    <Preference
+        android:key="csv_delete"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/csvdelete_title" />
 
-        <Preference
-            android:key="csv_help"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="도움말"/>
+    <Preference
+        android:key="csv_help"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="도움말" />
 
-    <PreferenceCategory/>
+    <PreferenceCategory />
 </PreferenceScreen>

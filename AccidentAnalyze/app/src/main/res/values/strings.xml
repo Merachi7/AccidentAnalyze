@@ -9,13 +9,20 @@
 
     <!-- Preference Titles -->
     <string name="csvfile_header">CSV 파일</string>
+    <string name="data_header">분류 선택</string>
 
     <!-- Messages Preferences -->
     <string name="csvfile_title">CSV 파일 업로드</string>
     <string name="csvfile_default">등록된 파일이 없습니다.</string>
     <string name="csvdelete_title">CSV 파일 삭제</string>
+    <string name="construction_select_title">공종분류</string>
+    <string name="process_select_title">작업프로세스</string>
+    <string name="hazard_select_title">위험발생개체</string>
+    <string name="hazard_position_select_title">위험발생위치</string>
+    <string name="damage_select_title">인적피해</string>
 
     <!-- Buttons -->
     <string name="dashboard_button">대시보드</string>
     <string name="method_button">대처방안</string>
+    <string name="title_activity_test">test</string>
 </resources>
