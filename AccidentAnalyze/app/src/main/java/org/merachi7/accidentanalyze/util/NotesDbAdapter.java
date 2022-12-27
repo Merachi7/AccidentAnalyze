@@ -86,8 +86,9 @@ public class NotesDbAdapter {
         mDbHelper.close();
     }
 
-    public long createNote(AccidentData data) {
+    public void createNote(AccidentData data) {
         ContentValues args = new ContentValues();
+
         args.put(KEY_CONSTRUCTION_SPECIES_BIG, data.getConstruction_species_big());
         args.put(KEY_CONSTRUCTION_SPECIES_MEDIUM, data.getConstruction_species_medium());
         args.put(KEY_FACILITY_BIG, data.getFacility_big());
@@ -107,7 +108,7 @@ public class NotesDbAdapter {
         args.put(KEY_SEVERITY, data.getSeverity());
         args.put(KEY_METHOD_DESIGN, data.getMethod_design());
         args.put(KEY_METHOD_CONSTRUCTION, data.getMethod_construction_());
-        return mDb.insert(DATABASE_TABLE, null, args);
+        mDb.insert(DATABASE_TABLE, null, args);
     }
 
     public boolean deleteNote(long rowId) {

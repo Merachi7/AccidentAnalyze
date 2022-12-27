@@ -77,8 +77,7 @@ public class FileHelper {
                         }
                         String[] contentUriPrefixesToTry = new String[]{
                                 "content://downloads/public_downloads",
-                                "content://downloads/my_downloads",
-
+                                "content://downloads/my_downloads"
                         };
                         for (String contentUriPrefix : contentUriPrefixesToTry) {
                             try {
