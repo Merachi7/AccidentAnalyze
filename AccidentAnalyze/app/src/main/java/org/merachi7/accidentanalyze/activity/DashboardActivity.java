@@ -28,7 +28,7 @@ public class DashboardActivity extends AppCompatActivity {
     private DashboardCombined1Fragment fragment_combined1;
     private DashboardCombined2Fragment fragment_combined2;
     private FragmentTransaction transaction;
-
+    public List<String[]> dataList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +40,8 @@ public class DashboardActivity extends AppCompatActivity {
         String path = prefs.getString("csv_upload", "");
 
         CsvHelper csv_helper = new CsvHelper();
-        List<String[]> dataList = new ArrayList<>();
+        dataList = new ArrayList<>();
         dataList =  csv_helper.readAllCsvData(path);
-        int a = 0;
 
         fragmentManager = getSupportFragmentManager();
 

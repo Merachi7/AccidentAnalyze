@@ -1,6 +1,7 @@
 package org.merachi7.accidentanalyze.data;
 
 public class AccidentData {
+
     private String construction_species_big_;
     private String construction_species_medium_;
     private String facility_big_;

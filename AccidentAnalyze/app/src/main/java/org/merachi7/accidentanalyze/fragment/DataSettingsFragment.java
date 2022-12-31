@@ -24,8 +24,6 @@ public class DataSettingsFragment extends PreferenceFragmentCompat {
         editor = prefs.edit();
 
         prefs.registerOnSharedPreferenceChangeListener(listener);
-
-        Set<String> constructions = prefs.getStringSet("construction_select", null);
     }
 
     @Override
