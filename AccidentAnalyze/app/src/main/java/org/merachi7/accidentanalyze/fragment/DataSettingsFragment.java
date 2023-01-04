@@ -46,7 +46,7 @@ public class DataSettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             if(key.equals("construction_select")){
-               // Set<String> constructions = prefs.getStringSet(key, null);
+                Set<String> constructions = prefs.getStringSet(key, null);
             }else if(key.equals("process_select")){
                 Set<String> process = prefs.getStringSet(key, null);
             }else if(key.equals("hazard_select")){

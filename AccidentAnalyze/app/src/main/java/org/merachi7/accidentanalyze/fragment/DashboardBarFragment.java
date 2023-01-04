@@ -95,6 +95,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setAxisMinimum(0);
         chart.getAxisRight().setEnabled(false);
+        leftAxis.setDrawGridLines(false);
 
         XAxis xLabels = chart.getXAxis();
         xLabels.setTextSize(10f);
@@ -189,12 +190,6 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
         xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(construction));
 
         for (int i = 0; i < sortedData.size(); i++) {
-            if(!map.containsKey(sortedData.get(i)[4]))
-                continue;
-
-            if(!map.get(sortedData.get(i)[4]).containsKey(sortedData.get(i)[13]))
-                continue;
-
             map.get(sortedData.get(i)[4]).put(sortedData.get(i)[13],map.get(sortedData.get(i)[4]).get(sortedData.get(i)[13]) + 1);
         }
 
@@ -222,7 +217,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
         } else {
             set1 = new BarDataSet(values, "");
             set1.setDrawIcons(false);
-            set1.setDrawValues(true);
+            set1.setDrawValues(false);
             set1.setColors(getColors());
             set1.setStackLabels(damage_list);
 
@@ -415,7 +410,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
         } else {
             set1 = new BarDataSet(values, "");
             set1.setDrawIcons(false);
-            set1.setDrawValues(true);
+            set1.setDrawValues(false);
             set1.setColors(getColors());
             set1.setStackLabels(damage_list);
 
