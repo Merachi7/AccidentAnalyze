@@ -37,7 +37,7 @@
         <item>설비작업</item>
         <item>설치작업</item>
         <item>쌓기작업</item>
-        <item>양종작업</item>
+        <item>양중작업</item>
         <item>용접작업</item>
         <item>운반작업</item>
         <item>이동</item>
@@ -47,7 +47,7 @@
         <item>천공작업</item>
         <item>타설작업</item>
         <item>항타 및 항발작업</item>
-        <item>해제작업</item>
+        <item>해체작업</item>
         <item>형틀 및 목공</item>
         <item>확인 및 점검작업</item>
     </string-array>

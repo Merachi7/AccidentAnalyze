@@ -22,7 +22,9 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.CombinedData;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
@@ -116,14 +118,11 @@ public class DashboardCombined1Fragment extends Fragment {
         l.setFormToTextSpace(3f);
         l.setXEntrySpace(8f);
 
-        ArrayList<BarEntry> values = new ArrayList<>();
-
-
 
         String construction_list[] = {"가설공사", "건축 토공사" , "토공사", "건축물 부대공사", "금속공사", "기계설비공사", "기타", "도장공사", "말뚝공사", "목공사", "미장공사", "방수공사", "수장공사", "전기설비공사", "조적공사", "지붕 및 홈통공사", "창호 및 유리공사", "철골공사", "철근콘크리트공사", "타일 및 돌공사", "조경공사", "지정공사" };
         String process_list[] = {"고소작업", "굴착작업", "기타", "도장작업", "마감작업", "부설 및 다짐작업", "설비작업", "설치작업", "쌓기작업", "양중작업", "용접작업", "운반작업", "이동", "인양작업", "적재작업", "조립작업", "천공작업", "타설작업", "항타 및 항발작업", "해체작업", "형틀 및 목공" , "확인 및 점검작업"};
         String hazard_list[] = {"가시설", "건설공구", "건설기계", "건설자재", "기타", "부재", "시설물", "토사 및 암반"};
-        String hazard_position_list[] = {"가설계단", "강관동바리", "개구부", "거푸집", "건물", "고소작업차(고소작업대 등)", "공구류", "굴착사면", "기성말뚝", "기중기(이동식크레인) 등", "기타", "기타 가시설", "낙하물방지망", "덤프트럭", "데크플레이트", "돌담", "띠장", "방호선반", "배관", "벽체", "볼트", "비계", "사다리", "슬래브", "시스템동바리", "안전시설물", "옹벽", "와이어로프", "유증기", "자재", "작업발판", "절토사면", "지반", "창호", "천공기", "천정패널", "철골부재", "철근", "콘크리트펌프", "타워크레인", "특수거푸짐(갱폼 등)", "특수건설기계", "항타 및 항발기", "흙막이가시설"};
+        String hazard_position_list[] = {"가설계단", "강관동바리", "개구부", "거푸집", "건물", "고소작업차(고소작업대 등)", "공구류", "굴착사면", "기성말뚝", "기중기(이동식크레인 등)", "기타", "기타 가시설", "낙하물방지망", "덤프트럭", "데크플레이트", "돌담", "띠장", "방호선반", "배관", "벽체", "볼트", "비계", "사다리", "슬래브", "시스템동바리", "안전시설물", "옹벽", "와이어로프", "유증기", "자재", "작업발판", "절토사면", "지반", "창호", "천공기", "천정패널", "철골부재", "철근", "콘크리트펌프", "타워크레인", "특수거푸집(갱폼 등)", "특수건설기계", "항타 및 항발기", "흙막이가시설"};
         String damage_list[] = {"깔림", "떨어짐", "물체에 맞음", "질식", "화상", "넘어짐", "없음", "부딪힘"};
 
         ArrayList<String[]> sortedData = new ArrayList<String[]>();
@@ -169,24 +168,18 @@ public class DashboardCombined1Fragment extends Fragment {
             }
         }
 
-        HashMap<String, HashMap<String, Integer>> map = new HashMap<String, HashMap<String, Integer>>();
-
-        HashMap<String,Integer> innerMap = new HashMap<>();
-
-        for(int i =0; i<damage.size();i++){
-            innerMap.put((String) damage.toArray()[i], 1);
-        }
-
         HashMap<String, Integer> possibility_score = new HashMap<String, Integer>();
         HashMap<String, Integer> severity_score = new HashMap<String, Integer>();
         HashMap<String, Integer> total_size = new HashMap<String, Integer>();
+        HashMap<String, Integer> risk_score = new HashMap<String, Integer>();
 
 
-        for(int i =0; i< construction.size(); i++){
-            map.put((String) construction.toArray()[i], (HashMap<String, Integer>) innerMap.clone());
-            possibility_score.put((String) construction.toArray()[i], 0);
-            severity_score.put((String) construction.toArray()[i], 0);
-            total_size.put((String) construction.toArray()[i], 0);
+        for(int i =0; i< process.size(); i++){
+
+            possibility_score.put((String) process.toArray()[i], 0);
+            severity_score.put((String) process.toArray()[i], 0);
+            total_size.put((String) process.toArray()[i], 0);
+            risk_score.put((String) process.toArray()[i], 0);
         }
 
         for(int i =0; i < dataList.size(); i++){
@@ -196,17 +189,18 @@ public class DashboardCombined1Fragment extends Fragment {
             sortedData.add(dataList.get(i));
         }
 
-       xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(construction));
+       xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(process));
 
 
         for (int i = 0; i < sortedData.size(); i++) {
-            map.get(sortedData.get(i)[4]).put(sortedData.get(i)[13],map.get(sortedData.get(i)[4]).get(sortedData.get(i)[13]) + 1);
-            possibility_score.put(sortedData.get(i)[4], possibility_score.get(sortedData.get(i)[4]) + ChangeScore(sortedData.get(i)[15]));
-            severity_score.put(sortedData.get(i)[4], severity_score.get(sortedData.get(i)[4]) + ChangeScore(sortedData.get(i)[16]));
-            total_size.put(sortedData.get(i)[4], total_size.get(sortedData.get(i)[4]) + 1);
+            possibility_score.put(sortedData.get(i)[11], possibility_score.get(sortedData.get(i)[11]) + ChangeScore(sortedData.get(i)[15]));
+            severity_score.put(sortedData.get(i)[11], severity_score.get(sortedData.get(i)[11]) + ChangeScore(sortedData.get(i)[16]));
+            total_size.put(sortedData.get(i)[11], total_size.get(sortedData.get(i)[11]) + 1);
+            risk_score.put(sortedData.get(i)[11], risk_score.get(sortedData.get(i)[11]) + ChangeScore(sortedData.get(i)[15])*ChangeScore(sortedData.get(i)[16]));
         }
 
-        xLabels.setLabelCount(construction.size());
+        xLabels.setLabelCount(process.size());
+        xLabels.setAxisMaximum(xLabels.getLabelCount() + 0.4f);
         xLabels.setCenterAxisLabels(true);
         xLabels.setGranularityEnabled(true);
         //xLabels.setAvoidFirstLastClipping(true);
@@ -217,19 +211,19 @@ public class DashboardCombined1Fragment extends Fragment {
         ArrayList<BarEntry> possibility_bar_entries = new ArrayList<>();
         ArrayList<BarEntry> severity_bar_entries = new ArrayList<>();
 
-        for(int i = 0 ; i < construction.size(); i++){
-            possibility_bar_entries.add(new BarEntry(i, (float) possibility_score.get((String) construction.toArray()[i])/ total_size.get((String) construction.toArray()[i])));
-            severity_bar_entries.add(new BarEntry(i, (float)severity_score.get((String) construction.toArray()[i])/ total_size.get((String) construction.toArray()[i])));
+        for(int i = 0 ; i < process.size(); i++){
+            possibility_bar_entries.add(new BarEntry(i, (float) possibility_score.get((String) process.toArray()[i])/ total_size.get((String) process.toArray()[i])));
+            severity_bar_entries.add(new BarEntry(i, (float)severity_score.get((String) process.toArray()[i])/ total_size.get((String) process.toArray()[i])));
         }
 
-        BarDataSet possibility_set = new BarDataSet(possibility_bar_entries, "평균: 가능성 변환");
+        BarDataSet possibility_set = new BarDataSet(possibility_bar_entries, "평균: 가능성 변환 (좌)");
         possibility_set.setColor(Color.rgb(60, 220, 78));
         possibility_set.setValueTextColor(Color.rgb(60, 220, 78));
         possibility_set.setValueTextSize(10f);
         possibility_set.setAxisDependency(YAxis.AxisDependency.LEFT);
         possibility_set.setDrawValues(false);
 
-        BarDataSet severity_set = new BarDataSet(severity_bar_entries, "평균: 심각성 변환");
+        BarDataSet severity_set = new BarDataSet(severity_bar_entries, "평균: 심각성 변환 (좌)");
         severity_set.setColors(Color.rgb(61, 165, 255));
         severity_set.setValueTextColor(Color.rgb(61, 165, 255));
         severity_set.setValueTextSize(10f);
@@ -246,6 +240,35 @@ public class DashboardCombined1Fragment extends Fragment {
         barData.groupBars(0, groupSpace, barSpace);
 
         data.setData(barData);
+
+
+        /*
+
+        set linedata
+         */
+
+        LineData lineData = new LineData();
+
+        ArrayList<Entry> risk_score_entries = new ArrayList<>();
+
+        for(int i = 0 ; i < process.size(); i++){
+            risk_score_entries.add(new Entry(i + 0.5f, (float) risk_score.get((String) process.toArray()[i])/ total_size.get((String) process.toArray()[i])));
+        }
+
+        LineDataSet set = new LineDataSet(risk_score_entries, "평균 : RS 변환 (우)");
+        set.setColor(Color.rgb(255, 0, 0));
+        set.setLineWidth(2.5f);
+        set.setCircleColor(Color.rgb(255, 0, 0));
+        set.setCircleRadius(3f);
+        set.setFillColor(Color.rgb(255, 0, 0));
+        set.setMode(LineDataSet.Mode.LINEAR);
+        set.setDrawValues(false);
+
+        set.setAxisDependency(YAxis.AxisDependency.RIGHT);
+
+        lineData.addDataSet(set);
+
+        data.setData(lineData);
 
         chart.setData(data);
         chart.invalidate();
