@@ -48,6 +48,8 @@ public class DashboardCombined1Fragment extends Fragment {
 
     private CombinedChart chart;
     View v;
+
+    private String[] defaultList = {"상관없음"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,32 +60,11 @@ public class DashboardCombined1Fragment extends Fragment {
         if(dataList.size() != 0){
             prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
 
-            construction = prefs.getStringSet("construction_select", new HashSet<>()).toArray();
-            process = prefs.getStringSet("process_select", new HashSet<>()).toArray();
-            hazard =  prefs.getStringSet("hazard_select", new HashSet<>()).toArray();
-            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>()).toArray();
-            damage =  prefs.getStringSet("damage_select", new HashSet<>()).toArray();
-
-            if(construction == null){
-                construction = new String[0];
-            }
-
-            if(process == null){
-                process = new String[0];
-            }
-
-            if(hazard == null){
-                hazard = new String[0];
-            }
-
-            if(hazard_position == null){
-                hazard_position = new String[0];
-            }
-
-            if(damage == null){
-                damage = new String[0];
-            }
-
+            construction = prefs.getStringSet("construction_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            process = prefs.getStringSet("process_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard =  prefs.getStringSet("hazard_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            damage =  prefs.getStringSet("damage_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
 
             chart = (CombinedChart) v.findViewById(R.id.combined_chart);
 
@@ -102,6 +83,7 @@ public class DashboardCombined1Fragment extends Fragment {
             YAxis rightAxis = chart.getAxisRight();
             rightAxis.setAxisMinimum(0);
             leftAxis.setDrawGridLines(false);
+            rightAxis.setDrawGridLines(false);
 
             XAxis xLabels = chart.getXAxis();
             xLabels.setTextSize(10f);
@@ -173,7 +155,7 @@ public class DashboardCombined1Fragment extends Fragment {
 
             String tmp[] = new String[process.length];
             for(int i =0; i < process.length; i++){
-                tmp[i] = construction_list[i];
+                tmp[i] = (String) process[i];
             }
 
             xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(tmp));
@@ -225,6 +207,7 @@ public class DashboardCombined1Fragment extends Fragment {
             barData.setBarWidth(barWidth);
 
             barData.groupBars(0, groupSpace, barSpace);
+            barData.setBarWidth(0.7f);
 
             data.setData(barData);
 
@@ -313,32 +296,11 @@ public class DashboardCombined1Fragment extends Fragment {
         if(dataList.size() != 0){
             prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
 
-            construction = prefs.getStringSet("construction_select", new HashSet<>()).toArray();
-            process = prefs.getStringSet("process_select", new HashSet<>()).toArray();
-            hazard =  prefs.getStringSet("hazard_select", new HashSet<>()).toArray();
-            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>()).toArray();
-            damage =  prefs.getStringSet("damage_select", new HashSet<>()).toArray();
-
-            if(construction == null){
-                construction = new String[0];
-            }
-
-            if(process == null){
-                process = new String[0];
-            }
-
-            if(hazard == null){
-                hazard = new String[0];
-            }
-
-            if(hazard_position == null){
-                hazard_position = new String[0];
-            }
-
-            if(damage == null){
-                damage = new String[0];
-            }
-
+            construction = prefs.getStringSet("construction_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            process = prefs.getStringSet("process_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard =  prefs.getStringSet("hazard_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            damage =  prefs.getStringSet("damage_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
 
             chart = (CombinedChart) v.findViewById(R.id.combined_chart);
 
@@ -357,6 +319,7 @@ public class DashboardCombined1Fragment extends Fragment {
             YAxis rightAxis = chart.getAxisRight();
             rightAxis.setAxisMinimum(0);
             leftAxis.setDrawGridLines(false);
+            rightAxis.setDrawGridLines(false);
 
             XAxis xLabels = chart.getXAxis();
             xLabels.setTextSize(10f);
@@ -428,7 +391,7 @@ public class DashboardCombined1Fragment extends Fragment {
 
             String tmp[] = new String[process.length];
             for(int i =0; i < process.length; i++){
-                tmp[i] = construction_list[i];
+                tmp[i] = (String) process[i];
             }
 
             xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(tmp));

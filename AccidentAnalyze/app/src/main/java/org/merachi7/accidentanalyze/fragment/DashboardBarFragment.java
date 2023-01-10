@@ -46,6 +46,8 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
     private BarChart chart;
     View v;
 
+    private String[] defaultList = {"상관없음"};
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,33 +57,13 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
 
         ArrayList<String[]> dataList = new ArrayList<String[]> (((DashboardActivity)getActivity()).dataList);
 
+
         if(dataList.size() != 0){
-            construction = prefs.getStringSet("construction_select", new HashSet<>()).toArray();
-            process = prefs.getStringSet("process_select", new HashSet<>()).toArray();
-            hazard =  prefs.getStringSet("hazard_select", new HashSet<>()).toArray();
-            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>()).toArray();
-            damage =  prefs.getStringSet("damage_select", new HashSet<>()).toArray();
-
-            if(construction.length == 0){
-                construction = new String[0];
-            }
-
-            if(process.length == 0){
-                process = new String[0];
-            }
-
-            if(hazard.length == 0){
-                hazard = new String[0];
-            }
-
-            if(hazard_position.length == 0){
-                hazard_position = new String[0];
-            }
-
-            if(damage.length == 0){
-                damage = new String[0];
-            }
-
+            construction = prefs.getStringSet("construction_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            process = prefs.getStringSet("process_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard =  prefs.getStringSet("hazard_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            damage =  prefs.getStringSet("damage_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
 
             chart = (BarChart) v.findViewById(R.id.stacked_chart);
             chart.setOnChartValueSelectedListener(this);
@@ -172,7 +154,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
 
             String tmp[] = new String[construction.length];
             for(int i =0; i < construction.length; i++){
-                tmp[i] = construction_list[i];
+                tmp[i] = (String) construction[i];
             }
 
             xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(tmp));
@@ -234,32 +216,11 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
         ArrayList<String[]> dataList = new ArrayList<String[]> (((DashboardActivity)getActivity()).dataList);
 
         if(dataList.size() != 0){
-            construction = prefs.getStringSet("construction_select", new HashSet<>()).toArray();
-            process = prefs.getStringSet("process_select", new HashSet<>()).toArray();
-            hazard =  prefs.getStringSet("hazard_select", new HashSet<>()).toArray();
-            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>()).toArray();
-            damage =  prefs.getStringSet("damage_select", new HashSet<>()).toArray();
-
-            if(construction.length == 0){
-                construction = new String[0];
-            }
-
-            if(process.length == 0){
-                process = new String[0];
-            }
-
-            if(hazard.length == 0){
-                hazard = new String[0];
-            }
-
-            if(hazard_position.length == 0){
-                hazard_position = new String[0];
-            }
-
-            if(damage.length == 0){
-                damage = new String[0];
-            }
-
+            construction = prefs.getStringSet("construction_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            process = prefs.getStringSet("process_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard =  prefs.getStringSet("hazard_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            hazard_position =  prefs.getStringSet("hazard_position_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
+            damage =  prefs.getStringSet("damage_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
 
             chart = (BarChart) v.findViewById(R.id.stacked_chart);
             chart.setOnChartValueSelectedListener(this);
@@ -350,7 +311,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
 
             String tmp[] = new String[construction.length];
             for(int i =0; i < construction.length; i++){
-                tmp[i] = construction_list[i];
+                tmp[i] = (String) construction[i];
             }
 
             xLabels.setValueFormatter(new com.github.mikephil.charting.formatter.IndexAxisValueFormatter(tmp));

@@ -25,4 +25,7 @@
     <string name="dashboard_button">대시보드</string>
     <string name="method_button">대처방안</string>
     <string name="title_activity_test">test</string>
+
+    <!-- TextViews -->
+
 </resources>

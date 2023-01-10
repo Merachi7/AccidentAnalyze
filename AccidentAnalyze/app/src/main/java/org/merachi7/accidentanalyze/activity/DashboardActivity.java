@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import org.merachi7.accidentanalyze.R;
 import org.merachi7.accidentanalyze.fragment.DashboardBarFragment;
@@ -29,6 +30,7 @@ public class DashboardActivity extends AppCompatActivity {
     private DashboardCombined2Fragment fragment_combined2;
     private FragmentTransaction transaction;
     public List<String[]> dataList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, fragment_barchart).commitAllowingStateLoss();
-
+        
         ImageButton btnSetting = (ImageButton) findViewById(R.id.btnDataSetting);
         btnSetting.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), DataSettingActivity.class);
@@ -83,4 +85,5 @@ public class DashboardActivity extends AppCompatActivity {
                 break;
         }
     }
+
 }
