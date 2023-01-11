@@ -75,7 +75,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         Preference btnDelete = (Preference) findPreference("csv_delete");
         btnDelete.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
-
+                editor.putString("csv_upload", "");
+                editor.commit();
+                Toast.makeText(getActivity(),"데이터가 정상적으로 지워졌습니다", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

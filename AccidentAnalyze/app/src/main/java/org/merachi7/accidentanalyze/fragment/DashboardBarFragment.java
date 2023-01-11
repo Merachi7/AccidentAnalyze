@@ -215,6 +215,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
 
         ArrayList<String[]> dataList = new ArrayList<String[]> (((DashboardActivity)getActivity()).dataList);
 
+
         if(dataList.size() != 0){
             construction = prefs.getStringSet("construction_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
             process = prefs.getStringSet("process_select", new HashSet<>(Arrays.asList(defaultList))).toArray();
@@ -361,6 +362,7 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
             chart.invalidate();
         }
 
+
     }
 
     @Override
@@ -379,7 +381,6 @@ public class DashboardBarFragment extends Fragment implements OnChartValueSelect
     }
 
     final int[] COLORFUL_COLORS = {
-
             Color.rgb(229, 79, 109), Color.rgb(78, 205, 196), Color.rgb(114, 78, 145),
             Color.rgb(41, 47, 54), Color.rgb(248, 198, 48), Color.rgb(72, 169, 166), Color.rgb(212, 180, 131),
             Color.rgb(179, 0, 27)
