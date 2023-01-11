@@ -72,8 +72,7 @@ public class DashboardCircleFragment extends Fragment {
             chart.setDragEnabled(true);
             chart.setScaleEnabled(true);
 
-
-            chart.setMaxVisibleValueCount(200);
+            //chart.setMaxVisibleValueCount(200);
             chart.setTouchEnabled(true);
 
             chart.setDrawGridBackground(false);
@@ -89,7 +88,6 @@ public class DashboardCircleFragment extends Fragment {
 
             xLabels.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-
             Legend l = chart.getLegend();
             l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
             l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
@@ -100,14 +98,11 @@ public class DashboardCircleFragment extends Fragment {
             l.setXEntrySpace(8f);
 
             YAxis yl = chart.getAxisLeft();
-            yl.setSpaceTop(30f);
-            yl.setSpaceBottom(30f);
             yl.setDrawZeroLine(false);
             yl.setMaxWidth(15f);
             yl.setMinWidth(15f);
 
             chart.getAxisRight().setEnabled(false);
-
 
             String construction_list[] = {"가설공사", "건축 토공사", "토공사", "건축물 부대공사", "금속공사", "기계설비공사", "기타", "도장공사", "말뚝공사", "목공사", "미장공사", "방수공사", "수장공사", "전기설비공사", "조적공사", "지붕 및 홈통공사", "창호 및 유리공사", "철골공사", "철근콘크리트공사", "타일 및 돌공사", "조경공사", "지정공사"};
             String process_list[] = {"고소작업", "굴착작업", "기타", "도장작업", "마감작업", "부설 및 다짐작업", "설비작업", "설치작업", "쌓기작업", "양중작업", "용접작업", "운반작업", "이동", "인양작업", "적재작업", "조립작업", "천공작업", "타설작업", "항타 및 항발작업", "해체작업", "형틀 및 목공", "확인 및 점검작업"};
@@ -166,19 +161,21 @@ public class DashboardCircleFragment extends Fragment {
 
             //xLabels.setLabelCount(15);
             //xLabels.setAxisMinimum(0);
-            xLabels.setAxisMaximum(30);
+            //xLabels.setAxisMaximum(15);
 
             ArrayList<BubbleEntry> risk_entries = new ArrayList<>();
 
             for(int i =0; i< process.length; i++){
-                risk_entries.add(new BubbleEntry((float) possibility_score.get((String) process[i]) / total_size.get((String) process[i]), (float) severity_score.get((String) process[i]) / total_size.get((String) process[i]), 1f));
+                risk_entries.add(new BubbleEntry((float) (int) (possibility_score.get((String) process[i]) / total_size.get((String) process[i])), (float) (int) (severity_score.get((String) process[i]) / total_size.get((String) process[i])) , (float) total_size.get((String) process[i])));
+
+                //risk_entries.add(new BubbleEntry((float) possibility_score.get((String) process[i]) / total_size.get((String) process[i]), (float) severity_score.get((String) process[i]) / total_size.get((String) process[i]), 1f));
             }
 
             BubbleDataSet set1 = new BubbleDataSet(risk_entries, "Risk Index");
             set1.setDrawIcons(false);
             set1.setColors(Color.rgb(229, 79, 109));
-            //set1.setDrawValues(true);
-
+            set1.setDrawValues(true);
+            //set1.setNormalizeSizeEnabled(false);
             BubbleData data = new BubbleData(set1);
             data.setDrawValues(true);
             data.setValueTextSize(8f);
@@ -215,8 +212,7 @@ public class DashboardCircleFragment extends Fragment {
             chart.setDragEnabled(true);
             chart.setScaleEnabled(true);
 
-
-
+            //chart.setMaxVisibleValueCount(200);
             chart.setTouchEnabled(true);
 
             chart.setDrawGridBackground(false);
@@ -232,7 +228,6 @@ public class DashboardCircleFragment extends Fragment {
 
             xLabels.setPosition(XAxis.XAxisPosition.BOTTOM);
 
-
             Legend l = chart.getLegend();
             l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
             l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
@@ -243,14 +238,9 @@ public class DashboardCircleFragment extends Fragment {
             l.setXEntrySpace(8f);
 
             YAxis yl = chart.getAxisLeft();
-            yl.setSpaceTop(30f);
-            yl.setSpaceBottom(30f);
             yl.setDrawZeroLine(false);
-            yl.setMaxWidth(15f);
-            yl.setMinWidth(15f);
 
             chart.getAxisRight().setEnabled(false);
-
 
             String construction_list[] = {"가설공사", "건축 토공사", "토공사", "건축물 부대공사", "금속공사", "기계설비공사", "기타", "도장공사", "말뚝공사", "목공사", "미장공사", "방수공사", "수장공사", "전기설비공사", "조적공사", "지붕 및 홈통공사", "창호 및 유리공사", "철골공사", "철근콘크리트공사", "타일 및 돌공사", "조경공사", "지정공사"};
             String process_list[] = {"고소작업", "굴착작업", "기타", "도장작업", "마감작업", "부설 및 다짐작업", "설비작업", "설치작업", "쌓기작업", "양중작업", "용접작업", "운반작업", "이동", "인양작업", "적재작업", "조립작업", "천공작업", "타설작업", "항타 및 항발작업", "해체작업", "형틀 및 목공", "확인 및 점검작업"};
@@ -307,29 +297,30 @@ public class DashboardCircleFragment extends Fragment {
                 risk_score.put(sortedData.get(i)[11], risk_score.get(sortedData.get(i)[11]) + ChangeScore(sortedData.get(i)[15])*ChangeScore(sortedData.get(i)[16]));
             }
 
-            xLabels.setLabelCount(15);
-            xLabels.setAxisMinimum(0);
-            xLabels.setAxisMaximum(15);
+            //xLabels.setLabelCount(15);
+            //xLabels.setAxisMinimum(0);
+            //xLabels.setAxisMaximum(15);
 
             ArrayList<BubbleEntry> risk_entries = new ArrayList<>();
 
             for(int i =0; i< process.length; i++){
+                risk_entries.add(new BubbleEntry((float) (int) (possibility_score.get((String) process[i]) / total_size.get((String) process[i])), (float) (int) (severity_score.get((String) process[i]) / total_size.get((String) process[i])) , (float) total_size.get((String) process[i]) ));
 
-                risk_entries.add(new BubbleEntry((float) possibility_score.get((String) process[i]) / total_size.get((String) process[i]), (float) severity_score.get((String) process[i]) / total_size.get((String) process[i]), 1));
+                //risk_entries.add(new BubbleEntry((float) possibility_score.get((String) process[i]) / total_size.get((String) process[i]), (float) severity_score.get((String) process[i]) / total_size.get((String) process[i]), 1f));
             }
 
             BubbleDataSet set1 = new BubbleDataSet(risk_entries, "Risk Index");
             set1.setDrawIcons(false);
-            set1.setColors(Color.rgb(229, 79, 109), 130);
+            set1.setColors(Color.rgb(229, 79, 109));
             set1.setDrawValues(true);
-
+            //set1.setNormalizeSizeEnabled(false);
             BubbleData data = new BubbleData(set1);
             data.setDrawValues(true);
             data.setValueTextSize(8f);
             data.setValueTextColor(Color.WHITE);
             // data.setHighlightCircleWidth(1.5f);
 
-            //chart.setData(data);
+            chart.setData(data);
             chart.invalidate();
         }
 
