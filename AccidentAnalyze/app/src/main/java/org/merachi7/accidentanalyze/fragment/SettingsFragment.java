@@ -104,6 +104,8 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        verifyStoragePermissions(this.getActivity());
+
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
 
             if (data != null) {
@@ -119,10 +121,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         CsvHelper csv_helper = new CsvHelper();
       //  dbAdapter = new NotesDbAdapter(getActivity());
 
-
-        verifyStoragePermissions(this.getActivity());
-        getActivity().deleteDatabase("data");
-        List<String[]> dataList = csv_helper.readAllCsvData(path);
 
      //   dbAdapter.open();
      //  dbAdapter.insertAllData(dataList, dbAdapter);

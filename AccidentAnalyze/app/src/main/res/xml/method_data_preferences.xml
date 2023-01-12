@@ -1,0 +1,42 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/data_header"/>
+
+    <ListPreference
+        android:key="construction_select"
+        android:title="@string/construction_select_title"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/construction"
+        android:entryValues="@array/construction"/>
+
+    <ListPreference
+        android:key="process_select"
+        android:title="@string/process_select_title"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/process"
+        android:entryValues="@array/process"/>
+
+    <ListPreference
+        android:key="hazard_select"
+        android:title="@string/hazard_select_title"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/hazard"
+        android:entryValues="@array/hazard"
+        />
+
+    <ListPreference
+        android:key="hazard_position_select"
+        android:title="@string/hazard_position_select_title"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/hazard_position"
+        android:entryValues="@array/hazard_position"/>
+
+    <ListPreference
+        android:key="damage_select"
+        android:title="@string/damage_select_title"
+        app:useSimpleSummaryProvider="true"
+        android:entries="@array/damage"
+        android:entryValues="@array/damage"/>
+    <PreferenceCategory/>
+</PreferenceScreen>
