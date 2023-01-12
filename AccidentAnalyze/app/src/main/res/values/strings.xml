@@ -24,5 +24,9 @@
     <!-- Buttons -->
     <string name="dashboard_button">대시보드</string>
     <string name="method_button">대처방안</string>
+    <string name="barchart_button">막대</string>
+    <string name="combinedchart1_button">복합1</string>
+    <string name="combinedchart2_button">복합2</string>
+    <string name="bubblechart_button">버블</string>
 
 </resources>

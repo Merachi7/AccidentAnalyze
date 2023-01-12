@@ -4,39 +4,39 @@
     <PreferenceCategory app:title="@string/data_header"/>
 
     <ListPreference
-        android:key="construction_select"
+        android:key="method_construction_select"
         android:title="@string/construction_select_title"
         app:useSimpleSummaryProvider="true"
-        android:entries="@array/construction"
-        android:entryValues="@array/construction"/>
+        android:entries="@array/method_construction"
+        android:entryValues="@array/method_construction"/>
 
     <ListPreference
-        android:key="process_select"
+        android:key="method_process_select"
         android:title="@string/process_select_title"
         app:useSimpleSummaryProvider="true"
-        android:entries="@array/process"
-        android:entryValues="@array/process"/>
+        android:entries="@array/method_process"
+        android:entryValues="@array/method_process"/>
 
     <ListPreference
-        android:key="hazard_select"
+        android:key="method_hazard_select"
         android:title="@string/hazard_select_title"
         app:useSimpleSummaryProvider="true"
-        android:entries="@array/hazard"
-        android:entryValues="@array/hazard"
+        android:entries="@array/method_hazard"
+        android:entryValues="@array/method_hazard"
         />
 
     <ListPreference
-        android:key="hazard_position_select"
+        android:key="method_hazard_position_select"
         android:title="@string/hazard_position_select_title"
         app:useSimpleSummaryProvider="true"
-        android:entries="@array/hazard_position"
-        android:entryValues="@array/hazard_position"/>
+        android:entries="@array/method_hazard_position"
+        android:entryValues="@array/method_hazard_position"/>
 
     <ListPreference
-        android:key="damage_select"
+        android:key="method_damage_select"
         android:title="@string/damage_select_title"
         app:useSimpleSummaryProvider="true"
-        android:entries="@array/damage"
-        android:entryValues="@array/damage"/>
+        android:entries="@array/method_damage"
+        android:entryValues="@array/method_damage"/>
     <PreferenceCategory/>
 </PreferenceScreen>

@@ -123,4 +123,124 @@
         <item>질식</item>
         <item>화상</item>
     </string-array>
+
+    <!-- Method Data Preference -->
+    <string-array name="method_construction">
+        <item>가설공사</item>
+        <item>건축 토공사</item>
+        <item>건축물 부대공사</item>
+        <item>금속공사</item>
+        <item>기계설비공사</item>
+        <item>기타</item>
+        <item>도장공사</item>
+        <item>말뚝공사</item>
+        <item>목공사</item>
+        <item>미장공사</item>
+        <item>방수공사</item>
+        <item>수장공사</item>
+        <item>전기설비공사</item>
+        <item>조경공사</item>
+        <item>조적공사</item>
+        <item>지붕 및 홈통공사</item>
+        <item>지정공사</item>
+        <item>창호 및 유리공사</item>
+        <item>철골공사</item>
+        <item>철근콘크리트공사</item>
+        <item>타일 및 돌공사</item>
+        <item>토공사</item>
+    </string-array>
+
+    <string-array name="method_process">
+        <item>고소작업</item>
+        <item>굴착작업</item>
+        <item>기타</item>
+        <item>도장작업</item>
+        <item>마감작업</item>
+        <item>부설 및 다짐작업</item>
+        <item>설비작업</item>
+        <item>설치작업</item>
+        <item>쌓기작업</item>
+        <item>양중작업</item>
+        <item>용접작업</item>
+        <item>운반작업</item>
+        <item>이동</item>
+        <item>인양작업</item>
+        <item>적재작업</item>
+        <item>조립작업</item>
+        <item>천공작업</item>
+        <item>타설작업</item>
+        <item>항타 및 항발작업</item>
+        <item>해체작업</item>
+        <item>형틀 및 목공</item>
+        <item>확인 및 점검작업</item>
+    </string-array>
+
+    <string-array name="method_hazard">
+        <item>가시설</item>
+        <item>건설공구</item>
+        <item>건설기계</item>
+        <item>건설자재</item>
+        <item>기타</item>
+        <item>부재</item>
+        <item>시설물</item>
+        <item>토사 및 암반</item>
+    </string-array>
+
+    <string-array name="method_hazard_position">
+        <item>가설계단</item>
+        <item>강관동바리</item>
+        <item>개구부</item>
+        <item>거푸집</item>
+        <item>건물</item>
+        <item>고소작업차(고소작업대 등)</item>
+        <item>공구류</item>
+        <item>굴착사면</item>
+        <item>기성말뚝</item>
+        <item>기중기(이동식크레인 등)</item>
+        <item>기타</item>
+        <item>기타 가시설</item>
+        <item>낙하물방지망</item>
+        <item>덤프트럭</item>
+        <item>데크플레이트</item>
+        <item>돌담</item>
+        <item>띠장</item>
+        <item>방호선반</item>
+        <item>배관</item>
+        <item>벽체</item>
+        <item>볼트</item>
+        <item>비계</item>
+        <item>사다리</item>
+        <item>슬래브</item>
+        <item>시스템동바리</item>
+        <item>안전시설물</item>
+        <item>옹벽</item>
+        <item>와이어로프</item>
+        <item>유증기</item>
+        <item>자재</item>
+        <item>작업발판</item>
+        <item>절토사면</item>
+        <item>지반</item>
+        <item>창호</item>
+        <item>천공기</item>
+        <item>천정패널</item>
+        <item>철골부재</item>
+        <item>철근</item>
+        <item>콘크리트펌프</item>
+        <item>타워크레인</item>
+        <item>특수거푸집(갱폼 등)</item>
+        <item>특수건설기계</item>
+        <item>항타 및 항발기</item>
+        <item>흙막이가시설</item>
+    </string-array>
+
+    <string-array name="method_damage">
+        <item>깔림</item>
+        <item>넘어짐</item>
+        <item>떨어짐</item>
+        <item>물체에 맞음</item>
+        <item>부딪힘</item>
+        <item>없음</item>
+        <item>질식</item>
+        <item>화상</item>
+    </string-array>
 </resources>

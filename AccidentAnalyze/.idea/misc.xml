@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.29583333333333334" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_data_setting.xml" value="0.24427083333333333" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_main.xml" value="0.28020833333333334" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_method.xml" value="0.19021739130434784" />
+        <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_method_data_setting.xml" value="0.23143115942028986" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_setting.xml" value="0.271875" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_splash.xml" value="0.33" />
         <entry key="..\:/Users/USER/Desktop/AccidentAnalyze/AccidentAnalyze/app/src/main/res/layout/activity_test.xml" value="0.1703125" />

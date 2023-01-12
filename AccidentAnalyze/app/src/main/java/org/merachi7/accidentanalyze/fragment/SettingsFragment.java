@@ -85,7 +85,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         Preference btnHelp = (Preference) findPreference("csv_help");
         btnHelp.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
-                Toast.makeText(getActivity(),"정상적으로 작동하지 않는다면 csv 파일의 \'\\\'를 지워주세요", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"정상적으로 작동하지 않는다면 csv 파일의 \'\\\'를 지워주세요\n\n디바이스의 Download 폴더에 csv 파일을 넣어주세요", Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
@@ -113,6 +113,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
                 path = fileUri.getPath();
                 path = path.substring(path.lastIndexOf("/") + 1);
                 path = FileHelper.getPath(getActivity(), fileUri);
+
 
                 editor.putString("csv_upload", path);
                 editor.commit();

@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="clickHandler"
-            android:text="barchart" />
+            android:text="@string/barchart_button" />
 
         <Button
             android:id="@+id/btn_fragment_circle"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="clickHandler"
-            android:text="circle" />
+            android:text="@string/bubblechart_button" />
 
         <Button
             android:id="@+id/btn_fragment_combined1"
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="clickHandler"
-            android:text="combined1" />
+            android:text="@string/combinedchart1_button"/>
 
         <Button
             android:id="@+id/btn_fragment_combined2"
@@ -71,6 +71,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="clickHandler"
-            android:text="combined2" />
+            android:text="@string/combinedchart2_button"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
